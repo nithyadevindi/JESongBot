@@ -1,8 +1,6 @@
-# Song Bot
+# Song Bot 🎵
+
 A telegram bot that can download high quality songs from YouTube music
-<p align="center">
-  <img src="https://telegra.ph/file/45d311505e7d3954fb9dc.jpg">
-</p>
 
 Reach me on Telegram [Song Bot 🎵](https://t.me/jesongbot)
 
