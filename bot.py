@@ -62,13 +62,13 @@ async def song(_, message):
        "outtmpl": "downloads/%(id)s.%(ext)s",
        }
     try:
-        search = SearchVideos(url, offset=1, mode="json", max_results=1)
+        search = SearchVideos(query, offset=1, mode="json", max_results=1)
         test = search.result()
         p = json.loads(test)
         q = p.get("search_result")
         link = q[0]["link"]
         title = q[0]["title"]    
-        thumbnail = q[0]["thumbnails"]
+        thumbnail = q[0]["thumbnails"][0]["url"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
