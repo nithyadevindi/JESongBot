@@ -20,7 +20,7 @@ import aiohttp
 import json
 import youtube_dl
 from pyrogram import filters, Client, idle
-from youtubesearchpython import VideosSearch
+from youtubesearchpython import SearchVideos
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import API_ID, API_HASH, BOT_TOKEN
 
