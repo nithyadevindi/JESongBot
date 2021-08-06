@@ -76,7 +76,7 @@ async def song(_, message):
         return
     await shed.edit("📥 Downloading...")
     try:
-        yt = YouTube(link)
+        audio_file = YouTube(link)
         rep = "@Infinity_Bots"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
