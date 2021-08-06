@@ -66,7 +66,7 @@ async def song(_, message):
         q = search.result()
         link = q[0]["link"]
         title = q[0]["title"]    
-        thumbnail = q[0]["thumbnails"][0]["url"]
+        # thumbnail = q[0]["thumbnails"][0]["url"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
