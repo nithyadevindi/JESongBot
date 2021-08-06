@@ -63,14 +63,14 @@ async def song(_, message):
     try:
         videosSearch = VideosSearch(query, limit = 1)
         result = videosSearch.result()
-        link = result.accessibility.["link"]
-        title = result.["title"]     
-        thumbnail = result.thumbnails.["url"]
+        link = result[0]accessibility[0]["link"]
+        title = result[0]["title"]     
+        thumbnail = result[0]thumbnails[0]["url"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-        duration = results.["duration"]
-        channel = results.["channel"]
+        duration = result[0]["duration"]
+        channel = result[0]["channel"]
          
     except Exception as e:
         await shed.edit(
