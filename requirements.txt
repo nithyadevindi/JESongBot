@@ -1,6 +1,6 @@
 youtube_search
 requests
-pytube3
+youtube_dl
 aiohttp
 pyrogram
 tgcrypto
