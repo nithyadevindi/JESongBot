@@ -63,19 +63,15 @@ async def song(_, message):
     try:
         videosSearch = VideosSearch(query, limit = 1)
         result = videosSearch.result()
-        print(result)
-        """link = f"https://youtube.com{results[0]['url_suffix']}"
-        #print(results)
-        title = results[0]["title"][:40]       
-        thumbnail = results[0]["thumbnails"][0]
+        link = result.accessibility.["link"]
+        title = result.["title"]     
+        thumbnail = result.thumbnails.["url"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-
-        duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
-        views = results[0]["views"]
-        channel = results[0]["channel"]"""
+        duration = results.["duration"]
+        channel = results.["channel"]
+         
     except Exception as e:
         await shed.edit(
             "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
