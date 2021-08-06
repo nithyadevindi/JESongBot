@@ -17,6 +17,7 @@ import os
 import logging
 import requests
 import aiohttp
+import json
 import youtube_dl
 from pyrogram import filters, Client, idle
 from youtubesearchpython import VideosSearch
@@ -61,16 +62,18 @@ async def song(_, message):
        "outtmpl": "downloads/%(id)s.%(ext)s",
        }
     try:
-        videosSearch = VideosSearch(query, limit = 1)
-        result = videosSearch.result()
-        link = result[0]accessibility[0]["link"]
-        title = result[0]["title"]     
-        thumbnail = result[0]thumbnails[0]["url"]
+        search = SearchVideos(url, offset=1, mode="json", max_results=1)
+        test = search.result()
+        p = json.loads(test)
+        q = p.get("search_result")
+        link = q[0]["link"]
+        title = q[0]["title"]    
+        thumbnail = q[0]["thumbnails"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-        duration = result[0]["duration"]
-        channel = result[0]["channel"]
+        duration = q[0]["duration"]
+        channel = q[0]["channel"]
          
     except Exception as e:
         await shed.edit(
