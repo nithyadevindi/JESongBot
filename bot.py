@@ -63,7 +63,8 @@ async def song(_, message):
     try:
         videosSearch = VideosSearch(query, limit = 1)
         result = videosSearch.result()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
+        print(result)
+        """link = f"https://youtube.com{results[0]['url_suffix']}"
         #print(results)
         title = results[0]["title"][:40]       
         thumbnail = results[0]["thumbnails"][0]
@@ -74,7 +75,7 @@ async def song(_, message):
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
-        channel = results[0]["channel"]
+        channel = results[0]["channel"]"""
     except Exception as e:
         await shed.edit(
             "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
