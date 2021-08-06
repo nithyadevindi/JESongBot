@@ -54,6 +54,7 @@ async def song(_, message):
     if len(message.command) < 2:
        return await message.reply("**Usage:**\n - `/song [query]`")
     query = message.text.split(None, 1)[1]
+    queri = str(query)
     shed = await message.reply("🔎 Finding the song...")
     ydl_opts = {
        "format": "bestaudio[ext=m4a]",
@@ -62,7 +63,7 @@ async def song(_, message):
        "outtmpl": "downloads/%(id)s.%(ext)s",
        }
     try:
-        search = SearchVideos(query, offset=1, mode="json", max_results=1)
+        search = SearchVideos(queri, offset=1, mode="json", max_results=1)
         test = search.result()
         p = json.loads(test)
         q = p.get("search_result")
