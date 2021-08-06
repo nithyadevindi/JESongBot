@@ -19,7 +19,7 @@ import requests
 import aiohttp
 import youtube_dl
 from pyrogram import filters, Client, idle
-from youtube_search import YoutubeSearch
+from youtubesearchpython import VideosSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import API_ID, API_HASH, BOT_TOKEN
 
@@ -61,7 +61,8 @@ async def song(_, message):
        "outtmpl": "downloads/%(id)s.%(ext)s",
        }
     try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
+        videosSearch = VideosSearch(query, limit = 1)
+        result = videosSearch.result()
         link = f"https://youtube.com{results[0]['url_suffix']}"
         #print(results)
         title = results[0]["title"][:40]       
