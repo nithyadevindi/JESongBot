@@ -64,8 +64,10 @@ async def song(_, message):
     try:
         search = VideosSearch(query, limit = 1)
         q = search.result()
-        link = q[0]["link"]
-        title = q[0]["title"]    
+        # link = q[0]["link"]
+        title = q[0]["title"]
+        print(q)
+        print(title)
         # thumbnail = q[0]["thumbnails"][0]["url"]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
