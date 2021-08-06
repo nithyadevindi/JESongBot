@@ -1,4 +1,5 @@
 youtube-search-python
+ujson
 requests
 youtube_dl
 aiohttp
