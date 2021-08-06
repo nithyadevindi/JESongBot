@@ -62,7 +62,7 @@ async def song(_, message):
        "outtmpl": "downloads/%(id)s.%(ext)s",
        }
     try:
-        search = VideosSearch(query, limit = 1)
+        search = VideosSearch(query, limit = 1, mode="json")
         test = search.result()
         p = json.loads(test)
         q = p.get("search_result")
