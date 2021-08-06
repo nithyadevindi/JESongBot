@@ -1,4 +1,4 @@
-youtube_search
+youtube-search-python
 requests
 youtube_dl
 aiohttp
