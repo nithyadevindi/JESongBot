@@ -17,7 +17,7 @@ import os
 import logging
 import requests
 import aiohttp
-import youtube_dl
+from pytube import YouTube
 from pyrogram import filters, Client, idle
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -54,12 +54,6 @@ async def song(_, message):
        return await message.reply("**Usage:**\n - `/song [query]`")
     query = message.text.split(None, 1)[1]
     shed = await message.reply("🔎 Finding the song...")
-    ydl_opts = {
-       "format": "bestaudio[ext=m4a]",
-       "geo-bypass": True,
-       "nocheckcertificate": True,
-       "outtmpl": "downloads/%(id)s.%(ext)s",
-       }
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -82,10 +76,7 @@ async def song(_, message):
         return
     await shed.edit("📥 Downloading...")
     try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
+        yt = YouTube(link)
         rep = "@Infinity_Bots"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
