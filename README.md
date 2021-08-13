@@ -1,8 +1,8 @@
-# Song Bot 🎵
+# Song downloader 🎵
 
 A telegram bot that can download high quality songs from YouTube music
 
-Reach me on Telegram [Song Bot 🎵](https://t.me/jesongbot)
+Reach me on Telegram [Song Bot 🎵](http://t.me/vssongdownloaderbot)
 
 ## Features
 
@@ -10,7 +10,7 @@ Reach me on Telegram [Song Bot 🎵](https://t.me/jesongbot)
 
 ## Heroku Deploy
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ImJanindu/JESongBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" alt="Heroku Deploy" width="210" height="34.45"/></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/nithyadevindi/Ndsongbot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" alt="Heroku Deploy" width="210" height="34.45"/></a></p>
 
 ## Credits
 
